@@ -27,6 +27,8 @@ class AddTask extends Component {
                     style={styles.inputName}
                     value={this.state.name}
                     onChangeText={this.changeName}
+                    underlineColorAndroid="transparent"
+                    placeholder="Type a task"
                 />
                 <TouchableOpacity onPress={this.addTask}>
                     <Text>Add</Text>
@@ -38,15 +40,20 @@ class AddTask extends Component {
 
 const styles = StyleSheet.create({
     form: {
-        width: '90%',
+        width: '100%',
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        
     },
     inputName: {
-        width: '90%',
+        width: '80%',
         height: 40,
-        marginTop: 30 
+        marginTop: 40,
+        borderWidth: 1,
+        borderColor: 'rgba(3,3,3,0.2)',
+        borderRadius: 3,
+        padding: 10
     }
 });
 

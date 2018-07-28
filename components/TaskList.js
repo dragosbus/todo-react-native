@@ -18,7 +18,7 @@ const TaskList = props => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    flex: 2,
+    flex: 3,
     justifyContent: 'center',
     alignItems: 'center'
   },
