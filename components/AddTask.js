@@ -9,11 +9,16 @@ class AddTask extends Component {
             name: ''
         }
         this.changeName = this.changeName.bind(this);
+        this.addTask = this.addTask.bind(this);
     }
 
-    changeName({target}) {
-        this.setState({name: target.value})
+    changeName(text) {
+        this.setState({name: text})
     }
+
+    addTask() {
+        this.props.addTask(this.state.name);
+    };
 
     render() {
         return(
@@ -23,7 +28,7 @@ class AddTask extends Component {
                     value={this.state.name}
                     onChangeText={this.changeName}
                 />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.addTask}>
                     <Text>Add</Text>
                 </TouchableOpacity>
             </View>
@@ -37,7 +42,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        borderWidth: 1
     },
     inputName: {
         width: '90%',
