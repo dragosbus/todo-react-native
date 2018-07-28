@@ -1,20 +1,30 @@
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 
 import Task from './Task';
 
-const TaskList = props =>{
-    return(
-        <ScrollView style={styles.taskList}>
-            {props.tasks.map((task,i)=><Task key={i} name={task.name}/>)}
-        </ScrollView>
-    );
+const TaskList = props => {
+  return (
+    <View style={styles.container}>
+      <FlatList
+        style={styles.taskList}
+        data={props.tasks}
+        renderItem={({ item }) => <Task key={item.id} name={item.name} />}
+      />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    taskList: {
-        flex: 2
-    }
+  container: {
+    width: '100%',
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  taskList: {
+      width: '100%',
+  }
 });
 
 export default TaskList;

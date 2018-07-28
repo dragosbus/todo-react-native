@@ -6,7 +6,7 @@ class AddTask extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: ''
+            name: '',
         }
         this.changeName = this.changeName.bind(this);
         this.addTask = this.addTask.bind(this);

@@ -8,7 +8,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: [{name:'hi'}]
+      tasks: [{name:'hi'}],
+      id: 0
     }
     this.addTaskHandler = this.addTaskHandler.bind(this);
   }
@@ -16,7 +17,7 @@ export default class App extends React.Component {
   addTaskHandler(name) {
     this.setState(prevState=> (
       {
-        tasks: prevState.tasks.concat({name})
+        tasks: prevState.tasks.concat({id: this.state.id + 1, name})
       }
     ));
   }
