@@ -9,7 +9,7 @@ const TaskList = props => {
       <FlatList
         style={styles.taskList}
         data={props.tasks}
-        renderItem={({ item }) => <Task key={item.id} name={item.name} />}
+        renderItem={({ item }) => <Task name={item.name} completed={item.completed} toggleComplete={props.toggleComplete} id={props.id}/>}
       />
     </View>
   );

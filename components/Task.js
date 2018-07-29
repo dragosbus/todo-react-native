@@ -1,31 +1,27 @@
 import React from 'React';
-import {View, Text, Switch, StyleSheet} from 'react-native';
-
+import { View, Text, Switch, StyleSheet } from 'react-native';
 
 const Task = props => {
-    return (
-       <View style={styles.task}>
-            <Text>
-                {props.name}
-            </Text>
-            <Switch/>
-       </View>
-    );
+  return (
+    <View style={styles.task}>
+      <Switch value={props.completed} onValueChange={()=>props.toggleComplete(props.id)} />
+      <Text>{props.name}</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    task: {
-        width: '80%',
-        marginTop: 15,
-        textAlign: 'center',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        fontSize: 20,
-        borderWidth: 1,
-        borderColor: 'rgba(2,2,2,0.25)',
-        borderRadius: 5,
-        padding: 10
-    }
+  task: {
+    flex: 1,
+    width: '80%',
+    marginTop: 15,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderWidth: 1,
+    borderColor: 'rgba(2,2,2,0.25)',
+    borderRadius: 5,
+    padding: 10
+  }
 });
 
 export default Task;
