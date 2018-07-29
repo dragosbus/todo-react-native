@@ -1,12 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View , Alert} from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
 
 import AddTask from './components/AddTask';
 import TaskList from './components/TaskList';
 
-const defaultProps = {
-  
-}
+const defaultProps = {};
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,17 +12,19 @@ export default class App extends React.Component {
     this.state = {
       tasks: [],
       id: 0
-    }
+    };
     this.addTaskHandler = this.addTaskHandler.bind(this);
     this.toggleComplete = this.toggleComplete.bind(this);
   }
 
   toggleComplete(index) {
     this.setState({
-      tasks: this.state.tasks.map(t=>{
-        if(t.id === index) {
+      tasks: this.state.tasks.map(t => {
+        if (t.id === index) {
           t.completed = !t.completed;
+          console.log(t);
         }
+        return t;
       })
     });
   }
@@ -35,20 +35,18 @@ export default class App extends React.Component {
       name: name,
       completed: false,
       key: `${this.state.id}-${name}`
-    }
-    this.setState(prevState=> (
-      {
-        tasks: prevState.tasks.concat(newTask),
-        id: prevState.id + 1
-      }
-    ));
+    };
+    this.setState(prevState => ({
+      tasks: prevState.tasks.concat(newTask),
+      id: prevState.id + 1
+    }));
   }
 
   render() {
     return (
       <View style={styles.container}>
-       <AddTask addTask={this.addTaskHandler}/>
-       <TaskList tasks={this.state.tasks} toggleComplete={this.toggleComplete}/>
+        <AddTask addTask={this.addTaskHandler} />
+        <TaskList tasks={this.state.tasks} toggleComplete={this.toggleComplete} />
       </View>
     );
   }
@@ -59,6 +57,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
+    justifyContent: 'flex-start'
+  }
 });
