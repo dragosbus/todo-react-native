@@ -1,12 +1,15 @@
 import React from 'React';
-import {Text, StyleSheet} from 'react-native';
+import {View, Text, Switch, StyleSheet} from 'react-native';
 
 
 const Task = props => {
     return (
-        <Text style={styles.task}>
-            {props.name}
-        </Text>
+       <View style={styles.task}>
+            <Text>
+                {props.name}
+            </Text>
+            <Switch/>
+       </View>
     );
 };
 
