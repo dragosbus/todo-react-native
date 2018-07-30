@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
 
-import AddTask from './components/AddTask';
-import TaskList from './components/TaskList';
+import AddTask from './src/components/AddTask';
+import TaskList from './src/components/TaskList';
 
 const defaultProps = {};
 
